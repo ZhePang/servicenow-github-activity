@@ -1,0 +1,76 @@
+Full-schema repository activity query, two DuckDB threads. Raw JSON is not projected.
+
+┌─────────────────────────────────────┐
+│┌───────────────────────────────────┐│
+││    Query Profiling Information    ││
+│└───────────────────────────────────┘│
+└─────────────────────────────────────┘
+EXPLAIN ANALYZE SELECT date_trunc('day',occurred_at),event_type,count(*)  FROM events WHERE repo_id=235901813 AND occurred_at>='2026-08-25T00:00:00Z'::TIMESTAMPTZ  AND occurred_at<'2026-09-01T00:00:00Z'::TIMESTAMPTZ GROUP BY 1,2
+┌────────────────────────────────────────────────┐
+│┌──────────────────────────────────────────────┐│
+││              Total Time: 0.0042s             ││
+│└──────────────────────────────────────────────┘│
+└────────────────────────────────────────────────┘
+┌───────────────────────────┐
+│           QUERY           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│      EXPLAIN_ANALYZE      │
+│    ────────────────────   │
+│                           │
+│           0 rows          │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│       HASH_GROUP_BY       │
+│    ────────────────────   │
+│          Groups:          │
+│             #0            │
+│             #1            │
+│                           │
+│        Aggregates:        │
+│        count_star()       │
+│                           │
+│                           │
+│                           │
+│          52 rows          │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         PROJECTION        │
+│    ────────────────────   │
+│     date_trunc('day',     │
+│        occurred_at)       │
+│         event_type        │
+│                           │
+│                           │
+│                           │
+│          816 rows         │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         TABLE_SCAN        │
+│    ────────────────────   │
+│           Table:          │
+│     events.main.events    │
+│                           │
+│   Type: Sequential Scan   │
+│                           │
+│        Projections:       │
+│        occurred_at        │
+│         event_type        │
+│                           │
+│          Filters:         │
+│     repo_id=235901813     │
+│  occurred_at>='2026-08-25 │
+│   00:00:00+00'::TIMESTAMP │
+│     WITH TIME ZONE AND    │
+│   occurred_at<'2026-09-01 │
+│   00:00:00+00'::TIMESTAMP │
+│       WITH TIME ZONE      │
+│                           │
+│                           │
+│                           │
+│          816 rows         │
+│           0.00s           │
+└───────────────────────────┘

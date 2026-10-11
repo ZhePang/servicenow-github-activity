@@ -1,0 +1,8 @@
+{
+  "id": "recording-demo-star-1",
+  "type": "WatchEvent",
+  "created_at": "2026-08-31T23:59:00Z",
+  "repo": {"id": 965415649, "name": "openai/codex"},
+  "actor": {"id": 900000000002, "login": "demo-contributor"},
+  "payload": {"action": "started"}
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GitHub activity explorer</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script defer src="/static/vendor/chart.umd.min.js"></script>
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <main>
+    <header class="app-header">
+      <div class="brand"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M9 7v12a6 6 0 006 6h8M9 14h8a6 6 0 006-6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="6" r="3"/><circle cx="23" cy="6" r="3"/><circle cx="23" cy="25" r="3"/></svg><div><h1>GitHub activity explorer</h1><p>Follow the attention. Explore the work behind it.</p></div></div>
+      <div id="dataset" class="dataset">Loading snapshot...</div>
+    </header>
+    <form id="range-form" class="toolbar">
+      <div class="presets" aria-label="Time presets"><button type="button" data-preset="1">24h</button><button type="button" data-preset="7" class="active">7 days</button><button type="button" data-preset="all">All data</button></div>
+      <label>Start <input id="start" type="datetime-local" step="1" required></label>
+      <label>End <input id="end" type="datetime-local" step="1" required></label>
+      <span class="timezone">UTC<br><small>End excluded</small></span>
+      <button type="submit" class="primary">Apply</button>
+      <button type="button" id="refresh">Refresh</button>
+    </form>
+    <div id="status" role="status" aria-live="polite"></div>
+    <section id="view" aria-live="polite"></section>
+    <footer>Observed GitHub events · UTC timestamps · Complete snapshot history and continuing API input assumed.</footer>
+  </main>
+</body>
+</html>

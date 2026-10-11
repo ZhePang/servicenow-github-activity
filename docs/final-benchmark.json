@@ -1,0 +1,121 @@
+{
+  "independent_verification": {
+    "raw_rows": 138676,
+    "unique_events": 137302,
+    "duplicate_rows": 1374,
+    "repositories": 500,
+    "repository_reports_verified": 506,
+    "trend_reports_verified": 6,
+    "event_types": {
+      "PushEvent": 57676,
+      "DeleteEvent": 14788,
+      "IssueCommentEvent": 9368,
+      "CreateEvent": 15645,
+      "PullRequestReviewEvent": 6289,
+      "WatchEvent": 11532,
+      "PullRequestEvent": 10311,
+      "PullRequestReviewCommentEvent": 5208,
+      "ForkEvent": 1736,
+      "IssuesEvent": 4536,
+      "ReleaseEvent": 104,
+      "DiscussionEvent": 72,
+      "CommitCommentEvent": 35,
+      "GollumEvent": 1,
+      "MemberEvent": 1
+    },
+    "merged_prs": 1448,
+    "paired_merged_prs": 43
+  },
+  "http_latency": {
+    "trending_7d": {
+      "first_request_ms": 21.691584028303623,
+      "warm": {
+        "samples": 30,
+        "median_ms": 18.087770993588492,
+        "p95_ms": 19.74194343492854,
+        "max_ms": 21.431665983982384
+      }
+    },
+    "trending_1h": {
+      "first_request_ms": 18.019874987658113,
+      "warm": {
+        "samples": 30,
+        "median_ms": 17.652979033300653,
+        "p95_ms": 18.139895357307978,
+        "max_ms": 18.213999981526285
+      }
+    },
+    "trending_month": {
+      "first_request_ms": 17.9691250086762,
+      "warm": {
+        "samples": 30,
+        "median_ms": 18.07560448651202,
+        "p95_ms": 18.495950146461837,
+        "max_ms": 18.85258301626891
+      }
+    },
+    "repository_7d": {
+      "first_request_ms": 23.627790971659124,
+      "warm": {
+        "samples": 30,
+        "median_ms": 17.8085419756826,
+        "p95_ms": 18.72914595005568,
+        "max_ms": 18.737791979219764
+      }
+    },
+    "repository_month": {
+      "first_request_ms": 19.64595797471702,
+      "warm": {
+        "samples": 30,
+        "median_ms": 19.537687534466386,
+        "p95_ms": 20.658268887200393,
+        "max_ms": 21.01875003427267
+      }
+    }
+  },
+  "http_ingestion": {
+    "events": 1000,
+    "elapsed_seconds": 14.383557832974475,
+    "events_per_second": 69.52382794384073,
+    "write_latency": {
+      "samples": 1000,
+      "median_ms": 14.21456248499453,
+      "p95_ms": 17.019889896619134,
+      "max_ms": 23.878792009782046
+    },
+    "concurrent_reads": {
+      "trending_7d": {
+        "samples": 362,
+        "median_ms": 19.74268749472685,
+        "p95_ms": 21.128836864954792,
+        "max_ms": 23.45941698877141
+      },
+      "repository_7d": {
+        "samples": 362,
+        "median_ms": 19.805499992799014,
+        "p95_ms": 21.97810030193068,
+        "max_ms": 25.095958029851317
+      }
+    },
+    "duplicate_replay_verified": true,
+    "reader_threads": 1,
+    "writer_threads": 1,
+    "commits": "one event per HTTP request"
+  },
+  "timestamp_utc": "2026-10-11T23:16:17.050329+00:00",
+  "environment": {
+    "os": "macOS-14.8.9-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python": "3.11.2",
+    "duckdb_threads": 2,
+    "source_database_bytes": 403451904,
+    "snapshot_gzip_bytes": 70379838
+  },
+  "limitations": [
+    "Local loopback HTTP, a single API process, two DuckDB threads; not a production load test.",
+    "First request is per workload in this process; operating-system caches were not flushed.",
+    "One concurrent reader alternates trends and full repository reports; one writer sends individual events.",
+    "Event-time snapshot rates estimate activity, not network arrival rate or all GitHub traffic.",
+    "Source DB is copied while no writers are running and no pending WAL is present."
+  ]
+}

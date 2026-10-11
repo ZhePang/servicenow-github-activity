@@ -1,0 +1,22 @@
+{
+  "prepared_at_utc": "2026-10-11T23:21:02.004095+00:00",
+  "session_started_at_utc": "2026-10-11T22:10:45+00:00",
+  "implementation_started_at_utc": "2026-10-11T22:53:33+00:00",
+  "session_elapsed_minutes": 70.3,
+  "implementation_elapsed_minutes": 27.5,
+  "includes": "Preparation, measurement, design discussion, implementation, failed permission attempts, verification, user discussion and pauses.",
+  "verification": {
+    "tests_passed": 39,
+    "http_e2e": "passed",
+    "browser_walkthrough": "passed",
+    "full_snapshot_reference_reports": 506,
+    "trending_reference_reports": 6,
+    "fresh_launcher": "passed"
+  },
+  "handoff_steps": [
+    "Export and publish every unedited AI session at the final handoff, as requested.",
+    "Record/upload the prepared 4:30 demonstration and provide its URL."
+  ],
+  "dashboard": "http://127.0.0.1:8765/",
+  "repository_url": "https://github.com/ZhePang/servicenow-github-activity"
+}

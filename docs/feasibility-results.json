@@ -1,0 +1,295 @@
+{
+  "duckdb_version": "1.5.6",
+  "platform": "macOS-14.8.9-arm64-arm-64bit",
+  "cpu": "Unavailable in sandbox (arm64)",
+  "threads": 2,
+  "rates": {
+    "raw_rows": 138676,
+    "unique_events": 137302,
+    "duplicates": 1374,
+    "raw_event_time_rates": {
+      "month_average_events_per_second": 0.05177568697729988,
+      "peak_second": {
+        "timestamp": "2026-08-07T17:42:46+00:00",
+        "count": 16
+      },
+      "peak_minute": {
+        "start_utc": "2026-08-07T16:50:00+00:00",
+        "count": 111,
+        "events_per_second": 1.85
+      },
+      "peak_hour": {
+        "start_utc": "2026-08-07T17:00:00+00:00",
+        "count": 4022,
+        "events_per_second": 1.1172222222222221
+      },
+      "peak_day": {
+        "start_utc": "2026-08-07T00:00:00+00:00",
+        "count": 16550,
+        "events_per_second": 0.19155092592592593
+      },
+      "peak_rolling_60_seconds": {
+        "count": 126,
+        "events_per_second": 2.1,
+        "end_inclusive_utc": "2026-08-07T16:50:28+00:00"
+      }
+    },
+    "unique_event_time_rates": {
+      "month_average_events_per_second": 0.05126269414575866,
+      "peak_second": {
+        "timestamp": "2026-08-07T17:42:46+00:00",
+        "count": 16
+      },
+      "peak_minute": {
+        "start_utc": "2026-08-07T16:50:00+00:00",
+        "count": 110,
+        "events_per_second": 1.8333333333333333
+      },
+      "peak_hour": {
+        "start_utc": "2026-08-07T17:00:00+00:00",
+        "count": 3980,
+        "events_per_second": 1.1055555555555556
+      },
+      "peak_day": {
+        "start_utc": "2026-08-07T00:00:00+00:00",
+        "count": 16367,
+        "events_per_second": 0.18943287037037038
+      },
+      "peak_rolling_60_seconds": {
+        "count": 125,
+        "events_per_second": 2.0833333333333335,
+        "end_inclusive_utc": "2026-08-07T16:50:28+00:00"
+      }
+    },
+    "largest_repo": {
+      "id": 235901813,
+      "name": "PostHog/posthog",
+      "events": 7614
+    },
+    "largest_pr_repo": {
+      "id": 1103012935,
+      "name": "openclaw/openclaw",
+      "pr_events": 1267
+    },
+    "normalization_seconds": 3.0624928749748506,
+    "normalized_csv_bytes": 15803539
+  },
+  "layouts": {
+    "arrival_default": {
+      "load_and_index_seconds": 0.30107937497086823,
+      "database_bytes": 11808768,
+      "row_groups": 2,
+      "queries": {
+        "trending_7d": {
+          "median_ms": 0.7386874931398779,
+          "p95_ms": 1.8035420216619968,
+          "samples": 30
+        },
+        "activity_month": {
+          "median_ms": 1.584916521096602,
+          "p95_ms": 1.8782500410452485,
+          "samples": 30
+        },
+        "contributors_7d": {
+          "median_ms": 0.9789380128495395,
+          "p95_ms": 1.2242920347489417,
+          "samples": 30
+        },
+        "open_prs": {
+          "median_ms": 2.9236460104584694,
+          "p95_ms": 3.3063339651562274,
+          "samples": 30
+        },
+        "merge_durations": {
+          "median_ms": 2.7703960076905787,
+          "p95_ms": 3.071333048865199,
+          "samples": 30
+        },
+        "trending_hour": {
+          "median_ms": 0.7215415243990719,
+          "p95_ms": 0.9143750066868961,
+          "samples": 30
+        }
+      },
+      "reference_checks": "all six passed"
+    },
+    "time_default": {
+      "load_and_index_seconds": 0.31168904196238145,
+      "database_bytes": 11808768,
+      "row_groups": 2,
+      "queries": {
+        "trending_7d": {
+          "median_ms": 0.7716875115875155,
+          "p95_ms": 0.9524169727228582,
+          "samples": 30
+        },
+        "activity_month": {
+          "median_ms": 1.8637079920154065,
+          "p95_ms": 2.1126249921508133,
+          "samples": 30
+        },
+        "contributors_7d": {
+          "median_ms": 1.1904999846592546,
+          "p95_ms": 1.6167080029845238,
+          "samples": 30
+        },
+        "open_prs": {
+          "median_ms": 3.2309999805875123,
+          "p95_ms": 3.8552910555154085,
+          "samples": 30
+        },
+        "merge_durations": {
+          "median_ms": 3.0799999949522316,
+          "p95_ms": 3.445583046413958,
+          "samples": 30
+        },
+        "trending_hour": {
+          "median_ms": 0.8485415019094944,
+          "p95_ms": 1.1294999858364463,
+          "samples": 30
+        }
+      },
+      "reference_checks": "all six passed"
+    },
+    "repo_time_default": {
+      "load_and_index_seconds": 0.31426424998790026,
+      "database_bytes": 11284480,
+      "row_groups": 2,
+      "queries": {
+        "trending_7d": {
+          "median_ms": 1.0040215274784714,
+          "p95_ms": 1.2778330128639936,
+          "samples": 30
+        },
+        "activity_month": {
+          "median_ms": 1.392958511132747,
+          "p95_ms": 1.6412920085713267,
+          "samples": 30
+        },
+        "contributors_7d": {
+          "median_ms": 0.946457963436842,
+          "p95_ms": 1.1088750325143337,
+          "samples": 30
+        },
+        "open_prs": {
+          "median_ms": 1.510311965830624,
+          "p95_ms": 1.6705419984646142,
+          "samples": 30
+        },
+        "merge_durations": {
+          "median_ms": 2.723667013924569,
+          "p95_ms": 2.9878330533392727,
+          "samples": 30
+        },
+        "trending_hour": {
+          "median_ms": 0.7763545145280659,
+          "p95_ms": 0.8422909886576235,
+          "samples": 30
+        }
+      },
+      "reference_checks": "all six passed"
+    },
+    "time_small": {
+      "load_and_index_seconds": 0.33787050005048513,
+      "database_bytes": 12070912,
+      "row_groups": 9,
+      "queries": {
+        "trending_7d": {
+          "median_ms": 0.7999579829629511,
+          "p95_ms": 1.0089579736813903,
+          "samples": 30
+        },
+        "activity_month": {
+          "median_ms": 1.716166501864791,
+          "p95_ms": 1.9398750155232847,
+          "samples": 30
+        },
+        "contributors_7d": {
+          "median_ms": 1.0792914836201817,
+          "p95_ms": 1.3311660150066018,
+          "samples": 30
+        },
+        "open_prs": {
+          "median_ms": 2.3670829832553864,
+          "p95_ms": 2.5662920088507235,
+          "samples": 30
+        },
+        "merge_durations": {
+          "median_ms": 2.021770487772301,
+          "p95_ms": 2.2769170464016497,
+          "samples": 30
+        },
+        "trending_hour": {
+          "median_ms": 0.4291874938644469,
+          "p95_ms": 0.4753340035676956,
+          "samples": 30
+        }
+      },
+      "reference_checks": "all six passed"
+    },
+    "repo_time_small": {
+      "load_and_index_seconds": 0.33286387496627867,
+      "database_bytes": 11546624,
+      "row_groups": 9,
+      "queries": {
+        "trending_7d": {
+          "median_ms": 0.9819790138863027,
+          "p95_ms": 1.1734170257113874,
+          "samples": 30
+        },
+        "activity_month": {
+          "median_ms": 1.2927704956382513,
+          "p95_ms": 1.8939580186270177,
+          "samples": 30
+        },
+        "contributors_7d": {
+          "median_ms": 0.8783754892647266,
+          "p95_ms": 1.1875839554704726,
+          "samples": 30
+        },
+        "open_prs": {
+          "median_ms": 1.4962084824219346,
+          "p95_ms": 1.6267499886453152,
+          "samples": 30
+        },
+        "merge_durations": {
+          "median_ms": 2.1153955021873116,
+          "p95_ms": 2.370457979850471,
+          "samples": 30
+        },
+        "trending_hour": {
+          "median_ms": 0.7690209895372391,
+          "p95_ms": 0.930250040255487,
+          "samples": 30
+        }
+      },
+      "reference_checks": "all six passed"
+    }
+  },
+  "scope": "Persistent local database; warm query samples include Python execute/fetch; no HTTP, UI, schema validation, or crash-recovery test. Independent Python reference checks all six queries.",
+  "single_event_autocommit_with_reads": {
+    "events": 1000,
+    "elapsed_seconds": 3.115315708972048,
+    "events_per_second": 320.99475411754247,
+    "write_latency": {
+      "median_ms": 2.9492914909496903,
+      "p95_ms": 3.869500011205673,
+      "samples": 1000
+    },
+    "concurrent_activity_queries": {
+      "median_ms": 1.786416512914002,
+      "p95_ms": 2.6882090023718774,
+      "samples": 1536
+    },
+    "duplicate_insert_ignored": true,
+    "wal_enabled": true
+  },
+  "methodology": {
+    "query_samples_per_layout": 30,
+    "cache": "Warm; operating-system cache not flushed",
+    "bulk_load": "From already deduplicated, normalized CSV; includes unique-index build and checkpoint",
+    "ingestion": "1,000 distinct normalized rows, one autocommit INSERT each, WAL enabled; one concurrent activity-query thread; no HTTP or event-schema validation",
+    "reference_checks": "Six SQL queries compared against independent Python results for every layout; matched merge-duration sample count 43; duplicate write ignored and row count verified",
+    "event_rate_caveat": "Estimated from created_at timestamps in the 500-repository snapshot, not observed network arrivals or total GitHub traffic"
+  }
+}
