@@ -18,15 +18,18 @@ The compressed source snapshot is included at [`data/events.jsonl.gz`](data/even
 
 ### Development and verification
 
+Node 18+ is needed only for the standalone frontend unit tests. The dashboard has no Node build or runtime dependency.
+
 ```sh
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python -m compileall -q app scripts tests
 .venv/bin/python -m pip check
 .venv/bin/python -m pytest -q
 .venv/bin/python -m scripts.e2e
+node --test tests/activity-model.test.cjs
 ```
 
-39 tests pass. The E2E script starts a real Uvicorn server and verifies ingestion, duplicates, conflicts, analytics, and immediate read-after-write. Browser checks covered keyboard navigation, range controls, stale requests, bot filtering, pagination, invalid-range recovery, responsive layouts, and a submitted event appearing exactly once after Refresh. Browser console errors: none observed.
+40 Python tests and six frontend JavaScript unit tests pass. The E2E script starts a real Uvicorn server and verifies ingestion, duplicates, conflicts, analytics, and immediate read-after-write. Browser checks covered keyboard navigation, range controls, stale requests, bot filtering, pagination, invalid-range recovery, responsive layouts, and a submitted event appearing exactly once after Refresh. Browser console errors: none observed.
 
 To replay an import, stop the server first so the CLI can own the embedded database:
 
@@ -270,7 +273,7 @@ Activity chart
 - Count deduplicated events by repository, UTC bucket, and event type.
 - Preserve exact start/end filtering before bucketing.
 - Use hourly buckets for ranges <=48 hours and daily buckets for longer ranges.
-- Fill missing buckets with zeros. Include event-type legend toggles; stars, PRs,
+- Fill missing buckets with zeros. Show separate labeled bar charts; stars, PRs,
   issues, reviews, comments, and other observed types retain explicit labels.
 - PR activity means PR events, including labeling etc.; label it accordingly so
   it cannot be mistaken for the number of distinct PRs opened.
@@ -373,12 +376,13 @@ SQL parameters are bound; allowed sorting is mapped to fixed SQL expressions.
   +--------------------------------------------------------------------------+
   | Activity over time                                                      |
   | [Stars] [PR events] [Issues] [Reviews] [Comments] [Other types]            |
-  |                       time-series chart                                 |
+  | PR events / Issues / Stars: separate count charts                         |
+  | Pushes / Reviews / Comments: totals, peaks, UTC dates, shared scale option |
   +-------------------------------------+------------------------------------+
   | Observed open PRs                    | Merge duration                     |
   | As of [dataset watermark]            | Median / mean / p90                |
   | #123   observed opened ...           | Paired N of M merged PRs           |
-  | #456   observed reopened ...         | Unavailable if no valid pairs      |
+  | #456   observed reopened ...         | Explicit reason if no valid pairs  |
   | [Previous] [Next]                    | Observed-history explanation       |
   +-------------------------------------+------------------------------------+
   | Top contributors                          [ ] Include bots              |
@@ -392,12 +396,12 @@ SQL parameters are bound; allowed sorting is mapped to fixed SQL expressions.
 - A compact analytical workbench, with left-aligned tables and labeled chart axes.
 - Palette: white #FFFFFF, surface #F3F6FA, text #17233B, blue #2563EB,
   purple #7C3AED, amber #B8860B. Blue/purple/amber identify PR/issues/stars;
-  additional observed types use labeled, distinguishable chart lines.
+  each event type uses its own bar chart, with matching UTC buckets and explicit count axes.
 - System sans-serif text and tabular numerals; use the user's local system font.
 - Stable colors, visible keyboard focus, accessible control labels, responsive layout.
 - Chart animations disabled. Cancel stale requests when users change filters quickly.
 - Loading, empty, invalid-range, and request-failure states are explicit; failed requests
-  offer Retry. Empty merge samples show 'Unavailable', not a fabricated duration.
+  offer Retry. Empty merge samples explain missing opening history or no merged PRs; no duration is fabricated.
 - Static frontend assets and fonts work without a CDN after dependency setup.
 - Review against the brief: prioritize the ranked table and drill-down; keep visual
   decoration minimal so clarity and time spent on correctness remain the priorities.
@@ -460,7 +464,7 @@ M3. Analytics and read APIs (target 20 minutes)
   Extend the HTTP E2E script to verify trends, detail, and immediate read-after-write.
 
 M4. Dashboard (target 20 minutes)
-  Implement both views, filters, ranking controls, legend, PR pagination, bot toggle,
+  Implement both views, filters, ranking controls, activity charts, PR pagination, bot toggle,
   data limitations, loading/empty/error states, responsive layout, and local assets.
   Run Python compile/dependency checks and JavaScript syntax checks. Exercise the real
   browser against the server, verify filter changes and navigation, inspect screenshots,
@@ -500,7 +504,7 @@ https://duckdb.org/docs/current/guides/performance/how_to_tune_workloads
 
 ## Implementation notes
 
-- M1–M5 implementation and local verification are complete. All 39 tests and live HTTP E2E pass, including timezone-aware fetching, strict PR validation, timestamp overflow handling, atomic rollback, and consistent read transactions.
+- M1–M5 implementation and local verification are complete. All 40 Python tests, six JavaScript tests, and live HTTP E2E pass, including timezone-aware fetching, strict PR validation, timestamp overflow handling, atomic rollback, and consistent read transactions.
 - Coverage assumption confirmed: imported history is complete and up to date, and the event API continues that stream. Observed date bounds may extend as new events arrive.
 - Final contributor queries use the approved action restrictions. The exploratory probe below counted all actions for six types; Appendix B measures the final implementation.
 
@@ -579,6 +583,66 @@ The [actual query plan](docs/query-plan.txt) shows repository and exact timestam
 The portable launcher was smoke-tested from a fresh virtual environment and a fresh database using the full snapshot. Import accepted 137,302 events and the launched API reported 500 repositories. The original baseline database remains free of benchmark/demo events.
 
 [Complete final results](docs/final-benchmark.json)
+
+## Appendix C: snapshot-only merge timing and visualization decisions
+
+### Keep the supplied snapshot as the only analytical source
+
+During review, most repositories appeared to have unavailable merge times. We checked
+all 500 repositories in the default seven-day and full-month windows against an independent
+analysis of the raw gzip: 1,000 API reports agreed on merged and measurable counts.
+The limitation is missing PR opening history in the source, rather than a merge-query defect.
+
+| Snapshot window (UTC) | Merged PRs | Measurable pairs | Repositories with samples |
+| --- | ---: | ---: | ---: |
+| 25 Aug–1 Sep 2026, default | 305 | 2 | 2 |
+| 1 Aug–1 Sep 2026, full month | 1,448 | 43 | 32 |
+
+The PR payloads contain url/id/number/head/base but no created_at, merged_at, or closed_at
+fields. An opening event may precede the month or be absent from the supplied records.
+We cannot infer the true opening time for those PRs from this snapshot.
+
+**Decision:** keep the supplied snapshot as the only analytical source. Do not add GitHub
+API timestamp enrichment, cached external metadata, or a GitHub authentication requirement.
+This keeps interviewer startup simple and results reproducible from the committed gzip.
+The event receiver remains available as a separate exercise interface; no live GitHub
+subscription or external lookup is required for any dashboard read.
+
+Public GitHub data can be fetched without authentication, but the unauthenticated API limit
+is 60 requests/hour. Bulk enrichment would require more setup or a separately prepared cache,
+plus another source to document. [GitHub rate limits](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api)
+
+Consequences:
+
+- Measure only valid observed opening-to-merge pairs, and expose measurable/merged coverage.
+- Distinguish **no merged PRs in the range** from **merged PRs with missing opening history**.
+- Show a reason and a full-snapshot range action instead of three repeated unavailable values.
+- Preserve median/mean/p90 for valid samples, including a valid zero duration.
+- Treat small samples as observations, not a repository-wide performance estimate.
+
+Default-window examples: **openai/codex-security** has 1/1 measurable merge, median **20.4 h**;
+**agentconnect-md/agentconnect** has 1/3, median **7.1 min**. Select **All data** for examples
+such as **openai/codex**, 2/14, median **2.3 min**. workweave/router has 0/2 in the default
+window and 0/3 in the full month.
+
+[All 32 repositories with full-month timing samples](docs/merge-timing-coverage.md)
+and [exact unrounded statistics](docs/merge-timing-coverage.json).
+
+### Separate activity charts by event type
+
+The original overlaid lines and dense legend were difficult to read. The replacement uses
+six aligned bar charts for PR events, issues, stars, pushes, reviews and comments. Each shows
+its total, peak, UTC buckets and count axis. Independent scales reveal patterns; a **Use same
+scale** control compares absolute volumes. Other observed types expand below, and a keyboard
+accessible count table exposes all exact values. Empty types and empty ranges are explicit.
+PR activity still counts all PR actions, and exact half-open range filtering is unchanged.
+
+Verification: 40 Python tests, six JavaScript model tests, live HTTP E2E, desktop/mobile
+browser checks, tooltips, shared scales, extra types, count tables, pagination, bot filtering,
+and rapid rerenders passed. Browser console errors: none observed. The backend queries and
+snapshot database were unchanged, so Appendix B remains the backend measurement baseline.
+
+[Desktop preview](docs/activity-redesign.jpg).
 
 ## AI sessions
 

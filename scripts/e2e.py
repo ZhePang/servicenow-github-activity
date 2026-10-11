@@ -58,7 +58,22 @@ def run():
             assert client.get('/api/trending',params=params).json()['repositories'][0]['stars']==2
             assert client.post('/api/events',json=fresh).status_code==200
             assert client.get('/api/trending',params=params).json()['repositories'][0]['stars']==2
-    print('Real HTTP ingestion, analytics, and immediate visibility E2E passed.')
+            page=client.get('/').text
+            assert page.index('/static/activity-model.js')<page.index('/static/app.js')
+            assert client.get('/static/activity-model.js').status_code==200
+            merged=dict(event,id='e2e-merged',type='PullRequestEvent',created_at='2026-08-01T14:00:00Z',
+                        payload={'action':'merged','number':7})
+            assert client.post('/api/events',json=merged).status_code==201
+            stats=client.get('/api/repos/10',params=params).json()['merge_stats']
+            assert stats['merged_prs']==1 and stats['paired_prs']==0 and stats['median_seconds'] is None
+            opened=dict(merged,id='e2e-opened-late',created_at='2026-08-01T13:00:00Z',payload={'action':'opened','number':7})
+            assert client.post('/api/events',json=opened).status_code==201
+            stats=client.get('/api/repos/10',params=params).json()['merge_stats']
+            assert stats['median_seconds']==3600 and stats['paired_prs']==1
+            empty=client.get('/api/repos/10',params={'start':'2026-08-01T00:00:00Z','end':'2026-08-01T01:00:00Z'}).json()
+            assert empty['merge_stats']['merged_prs']==0
+            assert all(not any(series['counts']) for series in empty['activity']['series'])
+    print('Real HTTP ingestion, analytics, activity assets, merge coverage, and immediate visibility E2E passed.')
 
 
 if __name__=='__main__':run()

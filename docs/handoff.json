@@ -6,17 +6,29 @@
   "implementation_elapsed_minutes": 27.5,
   "includes": "Preparation, measurement, design discussion, implementation, failed permission attempts, verification, user discussion and pauses.",
   "verification": {
-    "tests_passed": 39,
+    "tests_passed": 40,
     "http_e2e": "passed",
     "browser_walkthrough": "passed",
     "full_snapshot_reference_reports": 506,
     "trending_reference_reports": 6,
-    "fresh_launcher": "passed"
+    "fresh_launcher": "passed",
+    "frontend_unit_tests_passed": 6
   },
   "handoff_steps": [
     "Export and publish every unedited AI session at the final handoff, as requested.",
     "Record/upload the prepared 4:30 demonstration and provide its URL."
   ],
   "dashboard": "http://127.0.0.1:8765/",
-  "repository_url": "https://github.com/ZhePang/servicenow-github-activity"
+  "repository_url": "https://github.com/ZhePang/servicenow-github-activity",
+  "review_updates": [
+    {
+      "completed_at_utc": "2026-10-11T23:48:20.500423+00:00",
+      "subject": "Snapshot-only PR timing coverage and per-type activity charts",
+      "snapshot_only": true,
+      "github_enrichment_added": false,
+      "default_timing_repositories": 2,
+      "full_month_timing_repositories": 32,
+      "independent_api_reports_checked": 1000
+    }
+  ]
 }

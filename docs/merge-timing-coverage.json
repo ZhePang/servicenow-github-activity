@@ -1,0 +1,368 @@
+{
+  "source": "Supplied gzip snapshot only; no GitHub API enrichment",
+  "snapshot_sha256": "c2f9bf0a79f3cd053db6856a9f1d5ace85f5fe31f63f060ed5a845a6394074fe",
+  "raw_rows": 138676,
+  "unique_events": 137302,
+  "windows": {
+    "default_7d": {
+      "start": "2026-08-25T00:00:00+00:00",
+      "end": "2026-09-01T00:00:00+00:00",
+      "merged_prs": 305,
+      "paired_prs": 2,
+      "repos_with_pairs": 2
+    },
+    "full_month": {
+      "start": "2026-08-01T00:00:00+00:00",
+      "end": "2026-09-01T00:00:00+00:00",
+      "merged_prs": 1448,
+      "paired_prs": 43,
+      "repos_with_pairs": 32
+    }
+  },
+  "repositories": {
+    "default_7d": [
+      {
+        "repo_id": 1310543401,
+        "repo_name": "agentconnect-md/agentconnect",
+        "merged_prs": 3,
+        "paired_prs": 1,
+        "coverage": 0.3333333333333333,
+        "median_seconds": 426.0,
+        "mean_seconds": 426.0,
+        "p90_seconds": 426.0
+      },
+      {
+        "repo_id": 1299769220,
+        "repo_name": "openai/codex-security",
+        "merged_prs": 1,
+        "paired_prs": 1,
+        "coverage": 1.0,
+        "median_seconds": 73582.0,
+        "mean_seconds": 73582.0,
+        "p90_seconds": 73582.0
+      }
+    ],
+    "full_month": [
+      {
+        "repo_id": 1310543401,
+        "repo_name": "agentconnect-md/agentconnect",
+        "merged_prs": 13,
+        "paired_prs": 1,
+        "coverage": 0.07692307692307693,
+        "median_seconds": 426.0,
+        "mean_seconds": 426.0,
+        "p90_seconds": 426.0
+      },
+      {
+        "repo_id": 1100776768,
+        "repo_name": "anthropics/claude-plugins-official",
+        "merged_prs": 7,
+        "paired_prs": 1,
+        "coverage": 0.14285714285714285,
+        "median_seconds": 512.0,
+        "mean_seconds": 512.0,
+        "p90_seconds": 512.0
+      },
+      {
+        "repo_id": 1081638046,
+        "repo_name": "bastani-inc/atomic",
+        "merged_prs": 2,
+        "paired_prs": 1,
+        "coverage": 0.5,
+        "median_seconds": 808.0,
+        "mean_seconds": 808.0,
+        "p90_seconds": 808.0
+      },
+      {
+        "repo_id": 1174789082,
+        "repo_name": "block/buzz",
+        "merged_prs": 7,
+        "paired_prs": 1,
+        "coverage": 0.14285714285714285,
+        "median_seconds": 1807.0,
+        "mean_seconds": 1807.0,
+        "p90_seconds": 1807.0
+      },
+      {
+        "repo_id": 202291859,
+        "repo_name": "chatwoot/chatwoot",
+        "merged_prs": 3,
+        "paired_prs": 1,
+        "coverage": 0.3333333333333333,
+        "median_seconds": 584.0,
+        "mean_seconds": 584.0,
+        "p90_seconds": 584.0
+      },
+      {
+        "repo_id": 940826973,
+        "repo_name": "Comfy-Org/workflow_templates",
+        "merged_prs": 4,
+        "paired_prs": 1,
+        "coverage": 0.25,
+        "median_seconds": 502.0,
+        "mean_seconds": 502.0,
+        "p90_seconds": 502.0
+      },
+      {
+        "repo_id": 1166102148,
+        "repo_name": "DeusData/codebase-memory-mcp",
+        "merged_prs": 2,
+        "paired_prs": 1,
+        "coverage": 0.5,
+        "median_seconds": 17.0,
+        "mean_seconds": 17.0,
+        "p90_seconds": 17.0
+      },
+      {
+        "repo_id": 9384267,
+        "repo_name": "electron/electron",
+        "merged_prs": 4,
+        "paired_prs": 1,
+        "coverage": 0.25,
+        "median_seconds": 8883.0,
+        "mean_seconds": 8883.0,
+        "p90_seconds": 8883.0
+      },
+      {
+        "repo_id": 1216785679,
+        "repo_name": "esengine/DeepSeek-Reasonix",
+        "merged_prs": 11,
+        "paired_prs": 2,
+        "coverage": 0.18181818181818182,
+        "median_seconds": 1068.5,
+        "mean_seconds": 1068.5,
+        "p90_seconds": 1816.9
+      },
+      {
+        "repo_id": 1864233,
+        "repo_name": "frappe/erpnext",
+        "merged_prs": 5,
+        "paired_prs": 1,
+        "coverage": 0.2,
+        "median_seconds": 2312.0,
+        "mean_seconds": 2312.0,
+        "p90_seconds": 2312.0
+      },
+      {
+        "repo_id": 1166119443,
+        "repo_name": "get-bb/bb",
+        "merged_prs": 9,
+        "paired_prs": 2,
+        "coverage": 0.2222222222222222,
+        "median_seconds": 757.0,
+        "mean_seconds": 757.0,
+        "p90_seconds": 1033.8000000000002
+      },
+      {
+        "repo_id": 12888993,
+        "repo_name": "home-assistant/core",
+        "merged_prs": 10,
+        "paired_prs": 1,
+        "coverage": 0.1,
+        "median_seconds": 1287.0,
+        "mean_seconds": 1287.0,
+        "p90_seconds": 1287.0
+      },
+      {
+        "repo_id": 586920414,
+        "repo_name": "jdx/mise",
+        "merged_prs": 4,
+        "paired_prs": 2,
+        "coverage": 0.5,
+        "median_seconds": 15735.5,
+        "mean_seconds": 15735.5,
+        "p90_seconds": 24996.7
+      },
+      {
+        "repo_id": 1303258850,
+        "repo_name": "kirodotdev/KiroCrew",
+        "merged_prs": 14,
+        "paired_prs": 1,
+        "coverage": 0.07142857142857142,
+        "median_seconds": 1879.0,
+        "mean_seconds": 1879.0,
+        "p90_seconds": 1879.0
+      },
+      {
+        "repo_id": 868173144,
+        "repo_name": "kortix-ai/suna",
+        "merged_prs": 3,
+        "paired_prs": 1,
+        "coverage": 0.3333333333333333,
+        "median_seconds": 444.0,
+        "mean_seconds": 444.0,
+        "p90_seconds": 444.0
+      },
+      {
+        "repo_id": 471226425,
+        "repo_name": "MaaEnd/MaaEnd",
+        "merged_prs": 5,
+        "paired_prs": 2,
+        "coverage": 0.4,
+        "median_seconds": 831.0,
+        "mean_seconds": 831.0,
+        "p90_seconds": 1054.2
+      },
+      {
+        "repo_id": 30203935,
+        "repo_name": "metabase/metabase",
+        "merged_prs": 17,
+        "paired_prs": 1,
+        "coverage": 0.058823529411764705,
+        "median_seconds": 3285.0,
+        "mean_seconds": 3285.0,
+        "p90_seconds": 3285.0
+      },
+      {
+        "repo_id": 696529789,
+        "repo_name": "microsoft/aspire",
+        "merged_prs": 5,
+        "paired_prs": 1,
+        "coverage": 0.2,
+        "median_seconds": 3538.0,
+        "mean_seconds": 3538.0,
+        "p90_seconds": 3538.0
+      },
+      {
+        "repo_id": 4542716,
+        "repo_name": "NixOS/nixpkgs",
+        "merged_prs": 68,
+        "paired_prs": 1,
+        "coverage": 0.014705882352941176,
+        "median_seconds": 2379.0,
+        "mean_seconds": 2379.0,
+        "p90_seconds": 2379.0
+      },
+      {
+        "repo_id": 1022026685,
+        "repo_name": "numtide/llm-agents.nix",
+        "merged_prs": 19,
+        "paired_prs": 2,
+        "coverage": 0.10526315789473684,
+        "median_seconds": 269.5,
+        "mean_seconds": 269.5,
+        "p90_seconds": 298.7
+      },
+      {
+        "repo_id": 1262423362,
+        "repo_name": "open-city-ai/haidian",
+        "merged_prs": 58,
+        "paired_prs": 4,
+        "coverage": 0.06896551724137931,
+        "median_seconds": 1050.5,
+        "mean_seconds": 1337.5,
+        "p90_seconds": 2774.5
+      },
+      {
+        "repo_id": 965415649,
+        "repo_name": "openai/codex",
+        "merged_prs": 14,
+        "paired_prs": 2,
+        "coverage": 0.14285714285714285,
+        "median_seconds": 135.5,
+        "mean_seconds": 135.5,
+        "p90_seconds": 135.9
+      },
+      {
+        "repo_id": 1299769220,
+        "repo_name": "openai/codex-security",
+        "merged_prs": 6,
+        "paired_prs": 2,
+        "coverage": 0.3333333333333333,
+        "median_seconds": 38639.0,
+        "mean_seconds": 38639.0,
+        "p90_seconds": 66593.4
+      },
+      {
+        "repo_id": 81598961,
+        "repo_name": "python/cpython",
+        "merged_prs": 4,
+        "paired_prs": 1,
+        "coverage": 0.25,
+        "median_seconds": 386.0,
+        "mean_seconds": 386.0,
+        "p90_seconds": 386.0
+      },
+      {
+        "repo_id": 1299227072,
+        "repo_name": "qwen-code-dev-bot/oh-my-cli",
+        "merged_prs": 3,
+        "paired_prs": 1,
+        "coverage": 0.3333333333333333,
+        "median_seconds": 341.0,
+        "mean_seconds": 341.0,
+        "p90_seconds": 341.0
+      },
+      {
+        "repo_id": 1166182351,
+        "repo_name": "raullenchai/Rapid-MLX",
+        "merged_prs": 9,
+        "paired_prs": 1,
+        "coverage": 0.1111111111111111,
+        "median_seconds": 873.0,
+        "mean_seconds": 873.0,
+        "p90_seconds": 873.0
+      },
+      {
+        "repo_id": 76734068,
+        "repo_name": "renovatebot/renovate",
+        "merged_prs": 3,
+        "paired_prs": 2,
+        "coverage": 0.6666666666666666,
+        "median_seconds": 715.0,
+        "mean_seconds": 715.0,
+        "p90_seconds": 791.8
+      },
+      {
+        "repo_id": 1183888342,
+        "repo_name": "stablyai/orca",
+        "merged_prs": 16,
+        "paired_prs": 1,
+        "coverage": 0.0625,
+        "median_seconds": 722.0,
+        "mean_seconds": 722.0,
+        "p90_seconds": 722.0
+      },
+      {
+        "repo_id": 1261698251,
+        "repo_name": "strelov1/freehire",
+        "merged_prs": 7,
+        "paired_prs": 1,
+        "coverage": 0.14285714285714285,
+        "median_seconds": 909.0,
+        "mean_seconds": 909.0,
+        "p90_seconds": 909.0
+      },
+      {
+        "repo_id": 1117891044,
+        "repo_name": "TableProApp/TablePro",
+        "merged_prs": 5,
+        "paired_prs": 1,
+        "coverage": 0.2,
+        "median_seconds": 1136.0,
+        "mean_seconds": 1136.0,
+        "p90_seconds": 1136.0
+      },
+      {
+        "repo_id": 1267314128,
+        "repo_name": "tutti-os/tutti",
+        "merged_prs": 6,
+        "paired_prs": 1,
+        "coverage": 0.16666666666666666,
+        "median_seconds": 27.0,
+        "mean_seconds": 27.0,
+        "p90_seconds": 27.0
+      },
+      {
+        "repo_id": 644461337,
+        "repo_name": "vercel/ai",
+        "merged_prs": 8,
+        "paired_prs": 1,
+        "coverage": 0.125,
+        "median_seconds": 915.0,
+        "mean_seconds": 915.0,
+        "p90_seconds": 915.0
+      }
+    ]
+  }
+}
