@@ -15,7 +15,7 @@ The outline and walkthrough are prepared; a video has not been recorded or uploa
 
    Stop writers and ensure there is no pending source `.wal` before copying.
 3. Prepare a second terminal at the project root for the curl commands below.
-4. Keep README Appendix B and `docs/final-benchmark.json` ready to show.
+4. Keep [performance measurements](performance.md#final-application-measurements) and `docs/final-benchmark.json` ready to show.
 
 ## 0:00–0:45 — Question and trending
 
@@ -26,7 +26,7 @@ data to show why comparison becomes unavailable. Return to seven days and search
 
 ## 0:45–1:45 — Repository activity and data honesty
 
-Open the repository. For a default-window timing example, also show `openai/codex-security` (20.4h, 1/1 measurable); the complete sample list is in README Appendix C. Show the separate activity charts and shared-scale control, change to 24h for hourly counts, and use
+Open the repository. For a default-window timing example, also show `openai/codex-security` (20.4h, 1/1 measurable); the complete sample list is in [merge timing availability](merge-timing-coverage.md). Show the separate activity charts and shared-scale control, change to 24h for hourly counts, and use
 All data to show merge samples. Explain that open PR state is reconstructed at the data
 watermark and does not change with the activity range. Openings absent from the snapshot
 make merge durations unknown, so the UI shows measurable/merged coverage. Contributor
@@ -49,14 +49,14 @@ interface; the exercise does not include a real GitHub subscription or webhook a
 
 ## 2:35–3:30 — Architecture and measured choices
 
-Show the README ASCII diagram: shared normalization, snapshot staging and HTTP receiver,
+Show the README architecture diagram: shared normalization, snapshot staging and HTTP receiver,
 one transactional DuckDB store, consistent read transactions, same-origin dashboard.
 Explain typed predicates, initial repository/time order, 16,384-row groups, event-ID
 uniqueness and one writer. Raw JSON is retained but excluded from analytical scans.
 
 ## 3:30–4:30 — Evidence and limits
 
-Show Appendix B: 137,302 unique events; 506 repository reports independently verified;
+Show [the final application measurements](performance.md#final-application-measurements): 137,302 unique events; 506 repository reports independently verified;
 ~69.5 individual HTTP commits/s with concurrent reads; read p95 ~21–22 ms. Compare with
 the snapshot's busiest event-time second (16 events). Explain that event time is not
 network arrival time, and this is a local single-process measurement. Show the 40 passing
