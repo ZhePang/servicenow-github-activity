@@ -2,6 +2,10 @@
 
 A local dashboard for trending GitHub repositories, activity over time, observed open PRs, merge durations, and contributors.
 
+## Demo walkthrough
+
+[Watch the demo walkthrough on YouTube](https://youtu.be/BF8UxTb9HZQ).
+
 ## Run locally
 
 Requires **Python 3.11+, Bash, curl**, and Internet access to install dependencies. No GitHub token or frontend build is required.
@@ -173,6 +177,10 @@ and rapid rerenders passed. Browser console errors: none observed. The backend q
 snapshot database were unchanged, so Appendix B remains the backend measurement baseline.
 
 [Desktop preview](docs/activity-redesign.jpg) · [Detailed PR timing and visualization rationale](docs/design-decisions.md#snapshot-only-merge-timing-and-visualization-decisions).
+
+## AI session logs
+
+[Unedited session logs and index](ai-logs/README.md) include this conversation and both delegated sessions. The [export manifest](ai-logs/manifest.json) records capture time, file sizes, and SHA-256 hashes.
 
 ## Further details
 

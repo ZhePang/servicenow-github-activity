@@ -8,6 +8,8 @@
 - [Development and handoff](development.md): tests, import/API examples, benchmark reproduction, milestones, session-log policy, and work time.
 - [Merge timing availability](merge-timing-coverage.md): the two default-window and 32 full-month repositories with valid timing samples.
 - [Recording outline](recording-outline.md): a 4:30 walkthrough and preparation commands.
+- [Demo walkthrough](https://youtu.be/BF8UxTb9HZQ): the submitted video.
+- [AI session logs](../ai-logs/README.md): unedited main and delegated sessions with an integrity manifest.
 
 ## Evidence files
 

@@ -47,10 +47,10 @@ Expect 201 for a new ID, 200 for an identical replay, 409 for conflicting conten
 - Application code, tests, local frontend assets, startup/verification scripts, and the compressed source snapshot.
 - Documentation: architecture, metric definitions, assumptions, design decisions, and measurements.
 - [Final benchmark](final-benchmark.json), [query plan](query-plan.txt), and [installed versions](installed-packages.txt).
-- [Recording outline](recording-outline.md), target 4:30; recording/upload remains a user handoff.
-- Unedited AI session exports will be added at the final handoff, as requested.
+- [Demo walkthrough](https://youtu.be/BF8UxTb9HZQ) and [recording outline](recording-outline.md).
+- [Unedited AI session exports](../ai-logs/README.md), including the main conversation and both delegated sessions.
 
-[GitHub repository](https://github.com/ZhePang/servicenow-github-activity). The final recording URL and session-log export remain submission handoff steps.
+[GitHub repository](https://github.com/ZhePang/servicenow-github-activity). The README links the demo walkthrough and AI session logs.
 
 ## Milestones and verification
 
@@ -111,8 +111,13 @@ Record actual effort including the investigation and this design discussion.
 
 ## AI sessions
 
-The user requested that session logs be exported when all work is complete. This initial publication excludes the existing local exports. The final export will preserve every session unedited, including preparation, failed attempts, and delegated review.
+The [AI session index](../ai-logs/README.md) links raw JSONL copies of the main session,
+design audit, and merge-timing investigation. They preserve preparation, discussion,
+failed attempts, implementation and review without filtering or rewriting. The
+[manifest](../ai-logs/manifest.json) records capture time, original paths, file sizes
+and SHA-256 hashes. The main session is captured at that point in the continuing
+conversation; later messages require refreshing the export.
 
 ## Work time
 
-Work began on 11 October 2026 at 15:10:45 America/Los_Angeles, including preparation, measurement, design discussion, implementation, failed permission attempts, and verification. Packaging timestamps are recorded in [handoff.json](handoff.json). These are session elapsed times, including user discussion and pauses, not a claim of uninterrupted coding time. Implementation began at approximately 15:53:33 local. Recording/upload time is separate and has not yet occurred.
+Work began on 11 October 2026 at 15:10:45 America/Los_Angeles, including preparation, measurement, design discussion, implementation, failed permission attempts, and verification. Packaging timestamps are recorded in [handoff.json](handoff.json). These are session elapsed times, including user discussion and pauses, not a claim of uninterrupted coding time. Implementation began at approximately 15:53:33 local. The user supplied the demo URL at final handoff; recording/upload time is separate and was not tracked.

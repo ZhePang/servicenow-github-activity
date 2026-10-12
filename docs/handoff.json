@@ -14,10 +14,7 @@
     "fresh_launcher": "passed",
     "frontend_unit_tests_passed": 6
   },
-  "handoff_steps": [
-    "Export and publish every unedited AI session at the final handoff, as requested.",
-    "Record/upload the prepared 4:30 demonstration and provide its URL."
-  ],
+  "handoff_steps": [],
   "dashboard": "http://127.0.0.1:8765/",
   "repository_url": "https://github.com/ZhePang/servicenow-github-activity",
   "review_updates": [
@@ -30,5 +27,13 @@
       "full_month_timing_repositories": 32,
       "independent_api_reports_checked": 1000
     }
-  ]
+  ],
+  "submission_packaged_at_utc": "2026-10-12T00:16:36.114101+00:00",
+  "demo_walkthrough_url": "https://youtu.be/BF8UxTb9HZQ",
+  "ai_session_logs": {
+    "index": "ai-logs/README.md",
+    "manifest": "ai-logs/manifest.json",
+    "session_count": 3,
+    "captured_at_utc": "2026-10-12T00:16:35.956329+00:00"
+  }
 }

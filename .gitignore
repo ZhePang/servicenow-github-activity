@@ -5,6 +5,3 @@ data/*
 !data/events.jsonl.gz
 *.duckdb*
 *.tmp/
-
-# Publish session exports only at the final handoff.
-ai-logs/

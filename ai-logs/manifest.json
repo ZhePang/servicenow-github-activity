@@ -1,0 +1,27 @@
+{
+  "captured_at_utc": "2026-10-12T00:16:35.956329+00:00",
+  "sessions": [
+    {
+      "session_id": "01a12d04-b590-7ac1-933d-7d5607fac535",
+      "file": "01a12d04-b590-7ac1-933d-7d5607fac535.jsonl",
+      "source_path": "/Users/danielzzzz/.codex/sessions/2026/10/11/rollout-2026-10-11T15-10-45-01a12d04-b590-7ac1-933d-7d5607fac535.jsonl",
+      "bytes": 16597663,
+      "sha256": "4dfc4b7f937d6e0feda02f6e00e4f7cdd0660f23f9689c0840c4ede0355df7c0"
+    },
+    {
+      "session_id": "01a12d2b-cfd8-7d30-992f-9ab88d6c4f31",
+      "file": "01a12d2b-cfd8-7d30-992f-9ab88d6c4f31.jsonl",
+      "source_path": "/Users/danielzzzz/.codex/sessions/2026/10/11/rollout-2026-10-11T15-53-28-01a12d2b-cfd8-7d30-992f-9ab88d6c4f31.jsonl",
+      "bytes": 1297507,
+      "sha256": "5963f9215816d24ff326f6794b1c896e9e31dc9f0363b51ad93daa3b9485ece8"
+    },
+    {
+      "session_id": "01a12d4f-95a1-7a92-abc6-a24c63690246",
+      "file": "01a12d4f-95a1-7a92-abc6-a24c63690246.jsonl",
+      "source_path": "/Users/danielzzzz/.codex/sessions/2026/10/11/rollout-2026-10-11T16-32-32-01a12d4f-95a1-7a92-abc6-a24c63690246.jsonl",
+      "bytes": 521856,
+      "sha256": "16407eb1aa06302d794da704ead19820beb53d62cf8ea10873a1ff39db5d9459"
+    }
+  ],
+  "note": "Unedited raw JSONL copies. Refresh after the live session finishes to include its final messages."
+}
